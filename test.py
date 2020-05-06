@@ -51,7 +51,7 @@ def test(model, SCORE_THRESHOLD,draw_boxes=False):
             img_name = image_name.split(".")[0]
 
             bbox_data_gt = np.array(
-                [list(map(int, box.split(","))) for box in annotation[1:]]
+                [list(map(int, box.split(","))) for box in annotation[1:]],dtype = np.int16
             )
             if len(bbox_data_gt) == 0:
                 bboxes_gt = []

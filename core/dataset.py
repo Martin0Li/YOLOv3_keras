@@ -173,7 +173,7 @@ class Dataset(object):
             raise KeyError("%s does not exist ... " %image_path)
         image = cv2.imread(image_path)
 
-        bboxes = np.array([list(map(int, box.split(','))) for box in line[1:]])
+        bboxes = np.array([list(map(int, box.split(','))) for box in line[1:]],dtype = np.int16)
 
         if self.data_aug:
             image, bboxes = self.random_horizontal_flip(np.copy(image), np.copy(bboxes))
